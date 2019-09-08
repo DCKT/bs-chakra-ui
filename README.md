@@ -1,6 +1,8 @@
 # bs-chakra-ui 🚧
 
-Bucklescript bindings for [chakra-ui](https://chakra-ui.com)
+Bucklescript bindings for [chakra-ui](https://chakra-ui.com).
+
+**Important note**, chakra-ui use the styled system but in order to avoid props bindings overhead, I decided to mainly use `<Box />` when I need to create space, etc.
 
 ## Install
 
@@ -20,7 +22,6 @@ Add it to `bs-dependencies` in your `bsconfig.json` :
 
 ```reason
 open BsChakra;
-
 
 module App = {
   [@react.component]
@@ -44,3 +45,49 @@ module App = {
   };
 };
 ```
+
+### Todo
+
+- [ ] Accordion
+- [ ] Alert
+- [ ] AspectRatioBox
+- [ ] Avatar
+- [ ] Badge
+- [ ] Box 🚧
+- [ ] Breadcrumb
+- [ ] Button 🚧
+- [ ] Checkbox
+- [x] CircualProgress
+- [ ] CloseButton
+- [ ] Code
+- [ ] Collapse
+- [ ] ControlBox
+- [ ] Drawer
+- [ ] Editable
+- [ ] Flex
+- [ ] FormControl
+- [ ] Heading
+- [ ] Icon
+- [ ] IconButton
+- [ ] Input
+- [ ] Link
+- [ ] List
+- [ ] Menu
+- [ ] NumberInput
+- [ ] Popover
+- [ ] Progress
+- [ ] PseudoBox
+- [ ] Radio
+- [ ] Slider
+- [x] Spinner
+- [ ] Stat
+- [x] Stack
+- [x] Switch
+- [ ] Tabs
+- [ ] Tag
+- [ ] Textarea
+- [ ] Toast
+- [ ] Tooltip
+- [ ] useClipboard
+- [ ] useDisclosure
+- [ ] useTheme
