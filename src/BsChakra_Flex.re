@@ -20,9 +20,30 @@ external make:
     ~py: 'py=?,
     ~opacity: float=?,
     ~boxShadow: string=?,
+    ~direction: [@bs.string] [ | `row | `column]=?,
     ~w: string=?,
     ~h: string=?,
-    ~as_: string=?
+    ~wrap: [@bs.string] [
+             | `wrap
+             | `nowrap
+             | `unset
+             | [@bs.as "wrap-reverse"] `wrapReverse
+           ]
+             =?,
+    ~align: [@bs.string] [
+              | [@bs.as "flex-start"] `flexStart
+              | `center
+              | [@bs.as "flex-end"] `flexEnd
+            ]
+              =?,
+    ~justify: [@bs.string] [
+                | [@bs.as "flex-start"] `flexStart
+                | `center
+                | [@bs.as "flex-end"] `flexEnd
+                | [@bs.as "space-around"] `spaceAround
+                | [@bs.as "space-between"] `spaceBetween
+              ]
+                =?
   ) =>
   React.element =
   "Box";

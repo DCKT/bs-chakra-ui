@@ -3,9 +3,16 @@ open BsChakra_Types;
 [@bs.module "@chakra-ui/core"] [@react.component]
 external make:
   (
-    ~children: React.element,
-    ~bg: 'bg=?,
-    ~color: 'color=?,
+    ~placeholder: string=?,
+    ~roundedLeft: string=?,
+    ~rounded: string=?,
+    ~isRequired: bool=?,
+    ~isFullWidth: bool=?,
+    ~isReadOnly: bool=?,
+    ~isInvalid: bool=?,
+    ~isDisabled: bool=?,
+    ~variant: [@bs.string] [ | `outline | `unstyled | `flushed | `filled]=?,
+    ~focusBorderColor: 'focusBorderColor=?,
     ~margin: 'margin=?,
     ~marginTop: 'marginTop=?,
     ~marginBottom: 'marginBottom=?,
@@ -18,19 +25,24 @@ external make:
     ~paddingRight: 'pRig=?,
     ~px: 'px=?,
     ~py: 'py=?,
-    ~opacity: float=?,
-    ~boxShadow: string=?,
-    ~w: string=?,
-    ~h: string=?,
-    ~as_: string=?
+    ~size: [@bs.string] [ | `sm | `md | `lg]=?,
+    ~type_: [@bs.string] [
+              | `text
+              | `phone
+              | `password
+              | `number
+              | `date
+              | `checkbox
+              | `radio
+              | `email
+            ]
   ) =>
   React.element =
-  "Box";
+  "Input";
 
 let makeProps =
     (
-      ~bg: option(color)=?,
-      ~color: option(color)=?,
+      ~focusBorderColor: option(color)=?,
       ~margin: option((marginPaddingProps('a), 'a))=?,
       ~marginTop: option((marginPaddingProps('a), 'a))=?,
       ~marginBottom: option((marginPaddingProps('a), 'a))=?,
@@ -43,19 +55,9 @@ let makeProps =
       ~paddingRight: option((marginPaddingProps('a), 'a))=?,
       ~px: option((marginPaddingProps('a), 'a))=?,
       ~py: option((marginPaddingProps('a), 'a))=?,
-      ~boxShadow: option(shadowProps)=?,
     ) =>
   makeProps(
-    ~bg=?bg->mapToColor,
-    ~color=?color->mapToColor,
-    ~boxShadow=?
-      boxShadow
-      ->Belt.Option.map(key =>
-          switch (key) {
-          | Theme(value) => shadowToJs(value)
-          | Custom(value) => value
-          }
-        ),
+    ~focusBorderColor=?focusBorderColor->mapToColor,
     ~margin=?margin->getValue,
     ~marginTop=?marginTop->getValue,
     ~marginBottom=?marginBottom->getValue,
