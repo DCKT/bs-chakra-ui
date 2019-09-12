@@ -62,7 +62,7 @@ module App = {
 * [ ] Breadcrumb
 * [ ] Button 🚧
 * [ ] Checkbox
-* [x] CircualProgress
+* [x] CircularProgress
 * [ ] CloseButton
 * [ ] Code
 * [ ] Collapse
