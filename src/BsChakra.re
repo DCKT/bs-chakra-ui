@@ -30,3 +30,5 @@ module InputLeftElement = BsChakra_InputLeftElement;
 module InputRightElement = BsChakra_InputRightElement;
 module Text = BsChakra_Text;
 module FormControl = BsChakra_FormControl;
+module FormHelperText = BsChakra_FormHelperText;
+module FormErrorMessage = BsChakra_FormErrorMessage;
