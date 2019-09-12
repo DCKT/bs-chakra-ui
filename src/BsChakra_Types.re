@@ -1,3 +1,5 @@
+open Belt;
+
 [@bs.deriving jsConverter]
 type variantColor = [
   | `black
@@ -154,6 +156,10 @@ type align = [
   | [@bs.as "end"] `end_
 ];
 
+type responsiveValue('a) =
+  | Value('a)
+  | Responsive(array('a));
+
 type marginPaddingProps('a) =
   | Int: marginPaddingProps(int)
   | Array: marginPaddingProps(array(int));
@@ -180,3 +186,46 @@ type shadowProps =
   | Theme(shadow)
   | Custom(string);
 
+[@bs.deriving jsConverter]
+type lineHeight = [ | `normal | `base | `shorter | `short | `tall | `taller];
+
+[@bs.deriving jsConverter]
+type fontSize = [
+  | [@bs.as "6xl"] `xxxxxxl
+  | [@bs.as "5xl"] `xxxxxl
+  | [@bs.as "4xl"] `xxxxl
+  | [@bs.as "3xl"] `xxxl
+  | [@bs.as "2xl"] `xxl
+  | `xl
+  | `lg
+  | `md
+  | `sm
+  | `xs
+];
+
+[@bs.deriving jsConverter]
+type letterSpacing = [
+  | `tighter
+  | `tight
+  | `normal
+  | `wide
+  | `wider
+  | `widest
+];
+
+[@bs.deriving jsConverter]
+type textAlign = [ | `left | `center | `right | `justify];
+
+[@bs.deriving jsConverter]
+type font = [ | `body | `heading | `mono];
+
+external returnHack: 'a => 'b = "%identity";
+
+let extractProps = (props, toJs) =>
+  props
+  ->Belt.Option.map(p =>
+      switch (p) {
+      | Value(v) => returnHack(toJs(v))
+      | Responsive(v) => returnHack(v->Array.map(value => value->toJs))
+      }
+    );
