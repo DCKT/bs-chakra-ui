@@ -29,3 +29,4 @@ module InputGroup = BsChakra_InputGroup;
 module InputLeftElement = BsChakra_InputLeftElement;
 module InputRightElement = BsChakra_InputRightElement;
 module Text = BsChakra_Text;
+module FormControl = BsChakra_FormControl;

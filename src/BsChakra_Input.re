@@ -4,6 +4,7 @@ open BsChakra_Types;
 external make:
   (
     ~placeholder: string=?,
+    ~id: string=?,
     ~roundedLeft: string=?,
     ~rounded: string=?,
     ~isRequired: bool=?,
