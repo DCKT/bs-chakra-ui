@@ -86,6 +86,7 @@ module App = {
 * [ ] Tabs
 * [ ] Tag
 * [ ] Textarea
+* [x] Text
 * [ ] Toast
 * [ ] Tooltip
 * [ ] useClipboard
