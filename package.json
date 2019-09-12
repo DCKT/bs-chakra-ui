@@ -1,19 +1,13 @@
 {
   "name": "@dck/bs-chakra-ui",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "BuckleScript bindings for chakra-ui",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world"
   },
-  "keywords": [
-    "BuckleScript",
-    "chakra",
-    "chakra-ui",
-    "design",
-    "reasonml"
-  ],
+  "keywords": ["BuckleScript", "chakra", "chakra-ui", "design", "reasonml"],
   "author": "Thomas Deconinck",
   "license": "MIT",
   "devDependencies": {

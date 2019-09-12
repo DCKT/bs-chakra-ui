@@ -46,7 +46,7 @@ external make:
                 =?
   ) =>
   React.element =
-  "Box";
+  "Flex";
 
 let makeProps =
     (
