@@ -30,9 +30,14 @@ module App = {
 
     <ThemeProvider theme>
       <CSSReset />
+      <Text fontSize={Responsive([|`center, `right, `left|])}>
+        "Hello responsive"->React.string
+      </Text>
       <Stack isInline=true align=`center spacing=2>
         <FormLabel htmlFor="toggle">
-          "Toggle"->React.string
+          <Text fontSize={Value(`center)}>
+            "Toggle"->React.string
+          </Text>
         </FormLabel>
         <Switch
           id="toggle"
