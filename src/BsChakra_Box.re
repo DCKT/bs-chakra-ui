@@ -22,7 +22,7 @@ external make:
     ~boxShadow: string=?,
     ~w: string=?,
     ~h: string=?,
-    ~as_: string=?
+    ~_as: string=?
   ) =>
   React.element =
   "Box";

@@ -5,7 +5,7 @@ external make:
   (
     ~children: React.element,
     ~textAlign: 'textalign=?,
-    ~as_: [@bs.string] [ | `p | `span]=?,
+    ~_as: [@bs.string] [ | `p | `span]=?,
     ~fontWeight: [@bs.string] [ | `normal | `bold | `medium]=?,
     ~font: 'f=?,
     ~letterSpacing: 'letter=?,

@@ -6,7 +6,7 @@ external make:
     ~children: React.element,
     ~isTruncated: bool=?,
     ~textAlign: 'textalign=?,
-    ~as_: [@bs.string] [ | `p | `span]=?,
+    ~_as: [@bs.string] [ | `h1 | `h2 | `h3 | `h4 | `h5 | `h6]=?,
     ~fontWeight: [@bs.string] [ | `normal | `bold | `medium]=?,
     ~font: 'f=?,
     ~letterSpacing: 'letter=?,

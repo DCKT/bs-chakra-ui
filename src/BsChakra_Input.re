@@ -8,6 +8,7 @@ external make:
     ~roundedLeft: string=?,
     ~onChange: 'a => unit=?,
     ~onBlur: 'a => unit=?,
+    ~value: string=?,
     ~rounded: string=?,
     ~isRequired: bool=?,
     ~isFullWidth: bool=?,
@@ -29,7 +30,7 @@ external make:
     ~px: 'px=?,
     ~py: 'py=?,
     ~size: [@bs.string] [ | `sm | `md | `lg]=?,
-    ~type_: [@bs.string] [
+    ~_type: [@bs.string] [
               | `text
               | `phone
               | `password
