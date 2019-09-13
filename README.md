@@ -54,13 +54,13 @@ module App = {
 ### Todo
 
 * [ ] Accordion
-* [ ] Alert
+* [x] Alert
 * [ ] AspectRatioBox
 * [ ] Avatar
 * [ ] Badge
-* [ ] Box 🚧
+* [x] Box 🚧
 * [ ] Breadcrumb
-* [ ] Button 🚧
+* [x] Button 🚧
 * [ ] Checkbox
 * [x] CircularProgress
 * [ ] CloseButton

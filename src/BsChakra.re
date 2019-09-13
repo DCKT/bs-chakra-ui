@@ -32,3 +32,7 @@ module Text = BsChakra_Text;
 module FormControl = BsChakra_FormControl;
 module FormHelperText = BsChakra_FormHelperText;
 module FormErrorMessage = BsChakra_FormErrorMessage;
+module Alert = BsChakra_Alert;
+module AlertTitle = BsChakra_AlertTitle;
+module AlertDescription = BsChakra_AlertDescription;
+module AlertIcon = BsChakra_AlertIcon;
