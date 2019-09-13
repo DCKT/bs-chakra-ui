@@ -35,7 +35,7 @@ module App = {
       </Text>
       <Stack isInline=true align=`center spacing=2>
         <FormLabel htmlFor="toggle">
-          <Text fontSize={Value(`center)}>
+          <Text fontSize={All(`center)}>
             "Toggle"->React.string
           </Text>
         </FormLabel>
