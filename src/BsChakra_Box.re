@@ -20,8 +20,10 @@ external make:
     ~py: 'py=?,
     ~opacity: float=?,
     ~boxShadow: string=?,
-    ~w: string=?,
-    ~h: string=?,
+    ~width: 'wid=?,
+    ~height: 'hei=?,
+    ~maxWidth: 'maxW=?,
+    ~maxHeight: 'maxH=?,
     ~_as: string=?
   ) =>
   React.element =
@@ -43,6 +45,10 @@ let makeProps =
       ~paddingRight: option(responsiveValue(int))=?,
       ~px: option(responsiveValue(int))=?,
       ~py: option(responsiveValue(int))=?,
+      ~maxWidth: option(responsiveValue(string))=?,
+      ~maxHeight: option(responsiveValue(string))=?,
+      ~width: option(responsiveValue(string))=?,
+      ~height: option(responsiveValue(string))=?,
       ~boxShadow: option(shadowProps)=?,
     ) =>
   makeProps(
@@ -68,4 +74,8 @@ let makeProps =
     ~paddingRight=?paddingRight->extractProps(v => v),
     ~px=?px->extractProps(v => v),
     ~py=?py->extractProps(v => v),
+    ~maxHeight=?maxHeight->extractProps(v => v),
+    ~maxWidth=?maxWidth->extractProps(v => v),
+    ~height=?height->extractProps(v => v),
+    ~width=?width->extractProps(v => v),
   );
