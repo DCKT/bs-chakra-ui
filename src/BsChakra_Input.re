@@ -6,6 +6,8 @@ external make:
     ~placeholder: string=?,
     ~id: string=?,
     ~roundedLeft: string=?,
+    ~onChange: 'a => unit=?,
+    ~onBlur: 'a => unit=?,
     ~rounded: string=?,
     ~isRequired: bool=?,
     ~isFullWidth: bool=?,
