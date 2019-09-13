@@ -7,6 +7,7 @@ external make:
     ~variantColor: string=?,
     ~size: string=?,
     ~variant: [@bs.string] [ | `solid | `ghost | `outline | `link]=?,
+    ~_type: [@bs.string] [ | `submit | `button]=?,
     ~leftIcon: string=?,
     ~rightIcon: string=?,
     ~isLoading: bool=?,
