@@ -157,12 +157,8 @@ type align = [
 ];
 
 type responsiveValue('a) =
-  | Value('a)
+  | All('a)
   | Responsive(array('a));
-
-type marginPaddingProps('a) =
-  | Int: marginPaddingProps(int)
-  | Array: marginPaddingProps(array(int));
 
 let getValue = value => value->Belt.Option.map(((_, v)) => v);
 let mapToColor = value => value->Belt.Option.map(v => colorToJs(v));
@@ -225,7 +221,7 @@ let extractProps = (props, toJs) =>
   props
   ->Belt.Option.map(p =>
       switch (p) {
-      | Value(v) => returnHack(toJs(v))
+      | All(v) => returnHack(toJs(v))
       | Responsive(v) => returnHack(v->Array.map(value => value->toJs))
       }
     );

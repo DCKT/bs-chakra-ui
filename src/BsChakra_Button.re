@@ -11,14 +11,24 @@ external make:
     ~rightIcon: string=?,
     ~isLoading: bool=?,
     ~isDisabled: bool=?,
-    ~loadingText: string=?
+    ~loadingText: string=?,
+    ~ariaLabel: string=?,
+    ~width: 'w=?,
+    ~height: 'h=?
   ) =>
   React.element =
   "Button";
 
 let makeProps =
-    (~size: option(size)=?, ~variantColor: option(variantColor)=?) =>
+    (
+      ~size: option(size)=?,
+      ~variantColor: option(variantColor)=?,
+      ~width: option(responsiveValue(string))=?,
+      ~height: option(responsiveValue(string))=?,
+    ) =>
   makeProps(
     ~size=?size->mapToSize,
     ~variantColor=?variantColor->mapToVariantColor,
+    ~width=?width->extractProps(v => v),
+    ~height=?height->extractProps(v => v),
   );
