@@ -36,3 +36,4 @@ module Alert = BsChakra_Alert;
 module AlertTitle = BsChakra_AlertTitle;
 module AlertDescription = BsChakra_AlertDescription;
 module AlertIcon = BsChakra_AlertIcon;
+module Link = BsChakra_Link;

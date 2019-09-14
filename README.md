@@ -77,7 +77,7 @@ module App = {
 * [ ] Icon
 * [ ] IconButton
 * [x] Input
-* [ ] Link
+* [x] Link
 * [ ] List
 * [ ] Menu
 * [ ] NumberInput
