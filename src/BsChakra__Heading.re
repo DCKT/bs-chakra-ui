@@ -1,14 +1,12 @@
-open BsChakra_Types;
+open BsChakra__Types;
 
 [@bs.module "@chakra-ui/core"] [@react.component]
 external make:
   (
-    ~href: string,
-    ~isExternal: bool=?,
-    ~isDisabled: bool=?,
-    ~onClick: 'a => unit=?,
     ~children: React.element,
+    ~isTruncated: bool=?,
     ~textAlign: 'textalign=?,
+    ~_as: [@bs.string] [ | `h1 | `h2 | `h3 | `h4 | `h5 | `h6]=?,
     ~fontWeight: [@bs.string] [ | `normal | `bold | `medium]=?,
     ~font: 'f=?,
     ~letterSpacing: 'letter=?,
@@ -16,7 +14,7 @@ external make:
     ~fontSize: 'a=?
   ) =>
   React.element =
-  "Link";
+  "Heading";
 
 let makeProps =
     (

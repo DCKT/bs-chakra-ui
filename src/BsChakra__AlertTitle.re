@@ -1,4 +1,4 @@
-open BsChakra_Types;
+open BsChakra__Types;
 
 [@bs.module "@chakra-ui/core"] [@react.component]
 external make: (~fontSize: 'h=?, ~children: React.element=?) => React.element =

@@ -1,4 +1,4 @@
-open BsChakra_Types;
+open BsChakra__Types;
 
 [@bs.module "@chakra-ui/core"] [@react.component]
 external make:
@@ -19,37 +19,15 @@ external make:
     ~px: 'px=?,
     ~py: 'py=?,
     ~opacity: float=?,
-    ~boxShadow: string=?,
-    ~direction: [@bs.string] [ | `row | `column]=?,
+    ~boxShadow: 'box=?,
     ~width: 'wid=?,
     ~height: 'hei=?,
     ~maxWidth: 'maxW=?,
     ~maxHeight: 'maxH=?,
-    ~flex: 'maxH=?,
-    ~wrap: [@bs.string] [
-             | `wrap
-             | `nowrap
-             | `unset
-             | [@bs.as "wrap-reverse"] `wrapReverse
-           ]
-             =?,
-    ~align: [@bs.string] [
-              | [@bs.as "flex-start"] `flexStart
-              | `center
-              | [@bs.as "flex-end"] `flexEnd
-            ]
-              =?,
-    ~justify: [@bs.string] [
-                | [@bs.as "flex-start"] `flexStart
-                | `center
-                | [@bs.as "flex-end"] `flexEnd
-                | [@bs.as "space-around"] `spaceAround
-                | [@bs.as "space-between"] `spaceBetween
-              ]
-                =?
+    ~_as: string=?
   ) =>
   React.element =
-  "Flex";
+  "Box";
 
 let makeProps =
     (
@@ -67,22 +45,36 @@ let makeProps =
       ~paddingRight: option(responsiveValue(int))=?,
       ~px: option(responsiveValue(int))=?,
       ~py: option(responsiveValue(int))=?,
-      ~boxShadow: option(shadowProps)=?,
       ~maxWidth: option(responsiveValue(string))=?,
       ~maxHeight: option(responsiveValue(string))=?,
       ~width: option(responsiveValue(string))=?,
       ~height: option(responsiveValue(string))=?,
-      ~flex: option(responsiveValue(string))=?,
+      ~boxShadow: option(responsiveValue(shadowProps))=?,
     ) =>
   makeProps(
     ~bg=?bg->mapToColor,
     ~color=?color->mapToColor,
     ~boxShadow=?
       boxShadow
-      ->Belt.Option.map(key =>
-          switch (key) {
-          | Theme(value) => shadowToJs(value)
-          | Custom(value) => value
+      ->Belt.Option.map(p =>
+          switch (p) {
+          | All(v) =>
+            returnHack(
+              switch (v) {
+              | Theme(value) => shadowToJs(value)
+              | Custom(value) => value
+              },
+            )
+          | Responsive(v) =>
+            returnHack(
+              v
+              ->Belt.Array.map(value =>
+                  switch (value) {
+                  | Theme(value) => shadowToJs(value)
+                  | Custom(value) => value
+                  }
+                ),
+            )
           }
         ),
     ~margin=?margin->extractProps(v => v),
@@ -101,5 +93,4 @@ let makeProps =
     ~maxWidth=?maxWidth->extractProps(v => v),
     ~height=?height->extractProps(v => v),
     ~width=?width->extractProps(v => v),
-    ~flex=?flex->extractProps(v => v),
   );

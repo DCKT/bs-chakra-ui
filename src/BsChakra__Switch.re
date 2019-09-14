@@ -1,3 +1,5 @@
+open BsChakra__Types;
+
 [@bs.module "@chakra-ui/core"] [@react.component]
 external make:
   (
@@ -14,12 +16,8 @@ external make:
   React.element =
   "Switch";
 
-let makeProps =
-    (
-      ~size: option(BsChakra_Types.size)=?,
-      ~color: option(BsChakra_Types.color)=?,
-    ) =>
+let makeProps = (~size: option(size)=?, ~color: option(color)=?) =>
   makeProps(
-    ~size=?size->Belt.Option.map(v => BsChakra_Types.sizeToJs(v)),
-    ~color=?color->Belt.Option.map(v => BsChakra_Types.colorToJs(v)),
+    ~size=?size->Belt.Option.map(v => sizeToJs(v)),
+    ~color=?color->Belt.Option.map(v => colorToJs(v)),
   );
