@@ -13,7 +13,7 @@ module CSSReset = {
   external make: unit => React.element = "CSSReset";
 };
 
-module Accordion = BsChakra_Accordion;
+module Accordion = BsChakra__Accordion;
 module AccordionHeader = BsChakra_AccordionHeader;
 module AccordionItem = BsChakra_AccordionItem;
 module AccordionPanel = BsChakra_AccordionPanel;
