@@ -25,6 +25,7 @@ external make:
     ~height: 'hei=?,
     ~maxWidth: 'maxW=?,
     ~maxHeight: 'maxH=?,
+    ~flex: 'maxH=?,
     ~wrap: [@bs.string] [
              | `wrap
              | `nowrap
@@ -71,6 +72,7 @@ let makeProps =
       ~maxHeight: option(responsiveValue(string))=?,
       ~width: option(responsiveValue(string))=?,
       ~height: option(responsiveValue(string))=?,
+      ~flex: option(responsiveValue(string))=?,
     ) =>
   makeProps(
     ~bg=?bg->mapToColor,
@@ -99,4 +101,5 @@ let makeProps =
     ~maxWidth=?maxWidth->extractProps(v => v),
     ~height=?height->extractProps(v => v),
     ~width=?width->extractProps(v => v),
+    ~flex=?width->extractProps(v => v),
   );
