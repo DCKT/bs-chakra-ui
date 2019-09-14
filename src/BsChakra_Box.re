@@ -56,10 +56,25 @@ let makeProps =
     ~color=?color->mapToColor,
     ~boxShadow=?
       boxShadow
-      ->extractProps(v =>
-          switch (v) {
-          | Theme(value) => shadowToJs(value)
-          | Custom(value) => value
+      ->Belt.Option.map(p =>
+          switch (p) {
+          | All(v) =>
+            returnHack(
+              switch (v) {
+              | Theme(value) => shadowToJs(value)
+              | Custom(value) => value
+              },
+            )
+          | Responsive(v) =>
+            returnHack(
+              v
+              ->Belt.Array.map(value =>
+                  switch (value) {
+                  | Theme(value) => shadowToJs(value)
+                  | Custom(value) => value
+                  }
+                ),
+            )
           }
         ),
     ~margin=?margin->extractProps(v => v),
