@@ -21,8 +21,10 @@ external make:
     ~opacity: float=?,
     ~boxShadow: string=?,
     ~direction: [@bs.string] [ | `row | `column]=?,
-    ~w: string=?,
-    ~h: string=?,
+    ~width: 'wid=?,
+    ~height: 'hei=?,
+    ~maxWidth: 'maxW=?,
+    ~maxHeight: 'maxH=?,
     ~wrap: [@bs.string] [
              | `wrap
              | `nowrap
@@ -65,6 +67,10 @@ let makeProps =
       ~px: option(responsiveValue(int))=?,
       ~py: option(responsiveValue(int))=?,
       ~boxShadow: option(shadowProps)=?,
+      ~maxWidth: option(responsiveValue(string))=?,
+      ~maxHeight: option(responsiveValue(string))=?,
+      ~width: option(responsiveValue(string))=?,
+      ~height: option(responsiveValue(string))=?,
     ) =>
   makeProps(
     ~bg=?bg->mapToColor,
@@ -89,4 +95,8 @@ let makeProps =
     ~paddingRight=?paddingRight->extractProps(v => v),
     ~px=?px->extractProps(v => v),
     ~py=?py->extractProps(v => v),
+    ~maxHeight=?maxHeight->extractProps(v => v),
+    ~maxWidth=?maxWidth->extractProps(v => v),
+    ~height=?height->extractProps(v => v),
+    ~width=?width->extractProps(v => v),
   );
