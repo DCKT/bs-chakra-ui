@@ -2,10 +2,10 @@
 external make:
   (
     ~children: React.element,
-    ~defaultIndex: array(int)=?,
-    ~allowMultiple: bool=?,
-    ~allowToggle: bool=?,
+    ~isOpen: bool=?,
+    ~isDisabled: bool=?,
+    ~id: string=?,
     ~onChange: array(int) => unit=?
   ) =>
   React.element =
-  "Accordion";
+  "AccordionItem";

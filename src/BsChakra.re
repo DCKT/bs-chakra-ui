@@ -14,6 +14,9 @@ module CSSReset = {
 };
 
 module Accordion = BsChakra_Accordion;
+module AccordionHeader = BsChakra_AccordionHeader;
+module AccordionItem = BsChakra_AccordionItem;
+module AccordionPanel = BsChakra_AccordionPanel;
 module Button = BsChakra_Button;
 module Switch = BsChakra_Switch;
 module Stack = BsChakra_Stack;
