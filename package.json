@@ -1,6 +1,6 @@
 {
   "name": "@dck/bs-chakra-ui",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "description": "BuckleScript bindings for chakra-ui",
   "scripts": {
     "build": "bsb -make-world",
