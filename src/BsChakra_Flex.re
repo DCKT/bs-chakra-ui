@@ -101,5 +101,5 @@ let makeProps =
     ~maxWidth=?maxWidth->extractProps(v => v),
     ~height=?height->extractProps(v => v),
     ~width=?width->extractProps(v => v),
-    ~flex=?width->extractProps(v => v),
+    ~flex=?flex->extractProps(v => v),
   );
