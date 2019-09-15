@@ -76,6 +76,7 @@ module App = {
 * [x] Heading
 * [ ] Icon
 * [ ] IconButton
+* [x] Image
 * [x] Input
 * [x] Link
 * [ ] List
