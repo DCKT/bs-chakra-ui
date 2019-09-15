@@ -2,6 +2,8 @@ type theme;
 
 [@bs.module "@chakra-ui/core"] external theme: theme = "theme";
 
+include BsChakra__Types;
+
 module ThemeProvider = {
   [@bs.module "@chakra-ui/core"] [@react.component]
   external make: (~theme: theme, ~children: React.element) => React.element =
