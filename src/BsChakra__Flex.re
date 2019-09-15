@@ -20,33 +20,15 @@ external make:
     ~py: 'py=?,
     ~opacity: float=?,
     ~boxShadow: string=?,
-    ~direction: [@bs.string] [ | `row | `column]=?,
+    ~direction: 'direction=?,
     ~width: 'wid=?,
     ~height: 'hei=?,
     ~maxWidth: 'maxW=?,
     ~maxHeight: 'maxH=?,
     ~flex: 'maxH=?,
-    ~wrap: [@bs.string] [
-             | `wrap
-             | `nowrap
-             | `unset
-             | [@bs.as "wrap-reverse"] `wrapReverse
-           ]
-             =?,
-    ~align: [@bs.string] [
-              | [@bs.as "flex-start"] `flexStart
-              | `center
-              | [@bs.as "flex-end"] `flexEnd
-            ]
-              =?,
-    ~justify: [@bs.string] [
-                | [@bs.as "flex-start"] `flexStart
-                | `center
-                | [@bs.as "flex-end"] `flexEnd
-                | [@bs.as "space-around"] `spaceAround
-                | [@bs.as "space-between"] `spaceBetween
-              ]
-                =?
+    ~wrap: 'wrap=?,
+    ~align: 'align=?,
+    ~justify: 'justify=?
   ) =>
   React.element =
   "Flex";
@@ -73,6 +55,10 @@ let makeProps =
       ~width: option(responsiveValue(string))=?,
       ~height: option(responsiveValue(string))=?,
       ~flex: option(responsiveValue(string))=?,
+      ~align: option(responsiveValue(flexAlignment))=?,
+      ~justify: option(responsiveValue(flexAlignment))=?,
+      ~direction: option(responsiveValue(flexDirection))=?,
+      ~wrap: option(responsiveValue(flexWrap))=?,
     ) =>
   makeProps(
     ~bg=?bg->mapToColor,
@@ -102,4 +88,8 @@ let makeProps =
     ~height=?height->extractProps(v => v),
     ~width=?width->extractProps(v => v),
     ~flex=?flex->extractProps(v => v),
+    ~align=?align->extractProps(flexAlignmentToJs),
+    ~justify=?justify->extractProps(flexAlignmentToJs),
+    ~direction=?direction->extractProps(flexDirectionToJs),
+    ~wrap=?wrap->extractProps(flexWrapToJs),
   );

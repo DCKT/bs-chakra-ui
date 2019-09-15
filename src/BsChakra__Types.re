@@ -157,6 +157,22 @@ type flexAlignment = [
   | `center
 ];
 
+[@bs.deriving jsConverter]
+type flexDirection = [
+  | `row
+  | `column
+  | [@bs.as "row-reverse"] `rowReverse
+  | [@bs.as "column-reverse"] `columnReverse
+];
+
+[@bs.deriving jsConverter]
+type flexWrap = [
+  | `wrap
+  | `nowrap
+  | `unset
+  | [@bs.as "wrap-reverse"] `wrapReverse
+];
+
 type responsiveValue('a) =
   | All('a)
   | Responsive(array('a));
@@ -210,6 +226,9 @@ type avatarSize = [
   | `xs
   | [@bs.as "2xs"] `xxs
 ];
+
+[@bs.deriving jsConverter]
+type modalSize = [ | `lg | `md | `sm | `xs];
 
 [@bs.deriving jsConverter]
 type letterSpacing = [
