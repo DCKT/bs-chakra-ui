@@ -40,3 +40,6 @@ module AlertTitle = BsChakra__AlertTitle;
 module AlertDescription = BsChakra__AlertDescription;
 module AlertIcon = BsChakra__AlertIcon;
 module Link = BsChakra__Link;
+module Avatar = BsChakra__Avatar;
+module AvatarBadge = BsChakra__AvatarBadge;
+module AvatarGroup = BsChakra__AvatarGroup;

@@ -5,7 +5,7 @@ external make:
   (
     ~children: React.element,
     ~variantColor: string=?,
-    ~size: string=?,
+    ~size: 'size=?,
     ~variant: [@bs.string] [ | `solid | `ghost | `outline | `link]=?,
     ~_type: [@bs.string] [ | `submit | `button]=?,
     ~leftIcon: string=?,
@@ -22,13 +22,13 @@ external make:
 
 let makeProps =
     (
-      ~size: option(size)=?,
+      ~size: option(responsiveValue(buttonSize))=?,
       ~variantColor: option(variantColor)=?,
       ~width: option(responsiveValue(string))=?,
       ~height: option(responsiveValue(string))=?,
     ) =>
   makeProps(
-    ~size=?size->mapToSize,
+    ~size=?size->extractProps(buttonSizeToJs),
     ~variantColor=?variantColor->mapToVariantColor,
     ~width=?width->extractProps(v => v),
     ~height=?height->extractProps(v => v),

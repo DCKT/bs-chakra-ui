@@ -146,7 +146,7 @@ type color = [
 ];
 
 [@bs.deriving jsConverter]
-type size = [ | `xs | `sm | `md | `lg];
+type buttonSize = [ | `xs | `sm | `md | `lg];
 
 [@bs.deriving jsConverter]
 type align = [
@@ -162,7 +162,7 @@ type responsiveValue('a) =
 
 let getValue = value => value->Belt.Option.map(((_, v)) => v);
 let mapToColor = value => value->Belt.Option.map(v => colorToJs(v));
-let mapToSize = value => value->Belt.Option.map(v => sizeToJs(v));
+
 let mapToVariantColor = value =>
   value->Belt.Option.map(v => variantColorToJs(v));
 
@@ -197,6 +197,17 @@ type fontSize = [
   | `md
   | `sm
   | `xs
+];
+
+[@bs.deriving jsConverter]
+type avatarSize = [
+  | [@bs.as "2xl"] `xxl
+  | `xl
+  | `lg
+  | `md
+  | `sm
+  | `xs
+  | [@bs.as "2xs"] `xxs
 ];
 
 [@bs.deriving jsConverter]
