@@ -13,7 +13,8 @@ external make:
     ~font: 'f=?,
     ~letterSpacing: 'letter=?,
     ~lineHeight: 'b=?,
-    ~fontSize: 'a=?
+    ~fontSize: 'a=?,
+    ~color: 'a=?
   ) =>
   React.element =
   "Link";
@@ -25,6 +26,7 @@ let makeProps =
       ~font: option(responsiveValue(font))=?,
       ~letterSpacing: option(responsiveValue(letterSpacing))=?,
       ~textAlign: option(responsiveValue(textAlign))=?,
+      ~color: option(responsiveValue(color))=?,
     ) =>
   makeProps(
     ~fontSize=?fontSize->extractProps(fontSizeToJs),
@@ -32,4 +34,5 @@ let makeProps =
     ~font=?font->extractProps(fontToJs),
     ~letterSpacing=?letterSpacing->extractProps(letterSpacingToJs),
     ~textAlign=?textAlign->extractProps(textAlignToJs),
+    ~color=?color->extractProps(colorToJs),
   );
