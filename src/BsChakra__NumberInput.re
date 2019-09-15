@@ -6,7 +6,7 @@ external make:
     ~placeholder: string=?,
     ~id: string=?,
     ~roundedLeft: string=?,
-    ~onChange: int => unit=?,
+    ~onChange: float => unit=?,
     ~onBlur: 'a => unit=?,
     ~value: string=?,
     ~rounded: string=?,
