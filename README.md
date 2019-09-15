@@ -53,10 +53,10 @@ module App = {
 
 ### Todo
 
-* [ ] Accordion
+* [x] Accordion
 * [x] Alert
 * [ ] AspectRatioBox
-* [ ] Avatar
+* [x] Avatar
 * [ ] Badge
 * [x] Box 🚧
 * [ ] Breadcrumb
