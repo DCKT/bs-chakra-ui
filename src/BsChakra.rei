@@ -45,3 +45,4 @@ module AvatarBadge = BsChakra__AvatarBadge;
 module AvatarGroup = BsChakra__AvatarGroup;
 module NumberInput = BsChakra__NumberInput;
 module Image = BsChakra__Image;
+module Types = BsChakra__Types;

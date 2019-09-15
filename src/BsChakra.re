@@ -2,8 +2,6 @@ type theme;
 
 [@bs.module "@chakra-ui/core"] external theme: theme = "theme";
 
-include BsChakra__Types;
-
 module ThemeProvider = {
   [@bs.module "@chakra-ui/core"] [@react.component]
   external make: (~theme: theme, ~children: React.element) => React.element =
@@ -48,3 +46,4 @@ module AvatarBadge = BsChakra__AvatarBadge;
 module AvatarGroup = BsChakra__AvatarGroup;
 module NumberInput = BsChakra__NumberInput;
 module Image = BsChakra__Image;
+module Types = BsChakra__Types;
