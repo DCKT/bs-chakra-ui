@@ -73,7 +73,7 @@ module App = {
 * [x] FormControl
 * [x] FormHelperText
 * [x] FormErrorMessage
-* [ ] Heading
+* [x] Heading
 * [ ] Icon
 * [ ] IconButton
 * [x] Input
