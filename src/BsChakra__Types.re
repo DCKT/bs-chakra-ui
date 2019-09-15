@@ -149,11 +149,12 @@ type color = [
 type buttonSize = [ | `xs | `sm | `md | `lg];
 
 [@bs.deriving jsConverter]
-type align = [
-  | `start
+type flexAlignment = [
+  | [@bs.as "flex-start"] `flexStart
+  | [@bs.as "flex-end"] `flexEnd
   | [@bs.as "space-around"] `spaceAround
+  | [@bs.as "space-between"] `spaceBetween
   | `center
-  | [@bs.as "end"] `end_
 ];
 
 type responsiveValue('a) =

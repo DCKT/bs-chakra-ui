@@ -4,12 +4,20 @@ open BsChakra__Types;
 external make:
   (
     ~isInline: bool=?,
-    ~align: string=?,
+    ~align: 'align=?,
+    ~justify: 'justify=?,
     ~spacing: int=?,
     ~children: React.element
   ) =>
   React.element =
   "Stack";
 
-let makeProps = (~align: option(align)=?) =>
-  makeProps(~align=?align->Belt.Option.map(v => alignToJs(v)));
+let makeProps =
+    (
+      ~align: option(responsiveValue(flexAlignment))=?,
+      ~justify: option(responsiveValue(flexAlignment))=?,
+    ) =>
+  makeProps(
+    ~align=?align->extractProps(flexAlignmentToJs),
+    ~justify=?justify->extractProps(flexAlignmentToJs),
+  );
