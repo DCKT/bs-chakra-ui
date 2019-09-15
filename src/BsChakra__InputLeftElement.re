@@ -2,7 +2,12 @@ open BsChakra__Types;
 
 [@bs.module "@chakra-ui/core"] [@react.component]
 external make:
-  (~children: React.element, ~width: string=?, ~color: 'color=?) =>
+  (
+    ~children: React.element,
+    ~width: string=?,
+    ~color: 'color=?,
+    ~fontSize: string=?
+  ) =>
   React.element =
   "InputLeftElement";
 
