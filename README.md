@@ -80,7 +80,7 @@ module App = {
 * [x] Link
 * [ ] List
 * [ ] Menu
-* [ ] NumberInput
+* [x] NumberInput
 * [ ] Popover
 * [ ] Progress
 * [ ] PseudoBox

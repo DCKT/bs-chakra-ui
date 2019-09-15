@@ -43,3 +43,4 @@ module Link = BsChakra__Link;
 module Avatar = BsChakra__Avatar;
 module AvatarBadge = BsChakra__AvatarBadge;
 module AvatarGroup = BsChakra__AvatarGroup;
+module NumberInput = BsChakra__NumberInput;
