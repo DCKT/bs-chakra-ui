@@ -14,6 +14,7 @@ external make:
     ~isDisabled: bool=?,
     ~loadingText: string=?,
     ~ariaLabel: string=?,
+    ~onClick: ReactEvent.Mouse.t => unit=?,
     ~width: 'w=?,
     ~height: 'h=?
   ) =>

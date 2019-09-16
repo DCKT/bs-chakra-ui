@@ -6,7 +6,7 @@ external make:
     ~href: string,
     ~isExternal: bool=?,
     ~isDisabled: bool=?,
-    ~onClick: 'a => unit=?,
+    ~onClick: ReactEvent.Mouse.t => unit=?,
     ~children: React.element,
     ~textAlign: 'textalign=?,
     ~fontWeight: [@bs.string] [ | `normal | `bold | `medium]=?,
