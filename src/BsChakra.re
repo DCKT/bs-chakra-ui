@@ -20,9 +20,9 @@ module Hooks = {
     {
       .
       "isOpen": bool,
-      "onClose": unit => unit,
-      "onOpen": unit => unit,
-      "onToggle": unit => unit,
+      [@bs.meth] "onClose": unit => unit,
+      [@bs.meth] "onOpen": unit => unit,
+      [@bs.meth] "onToggle": unit => unit,
     } =
     "useDisclosure";
 
@@ -32,7 +32,7 @@ module Hooks = {
     {
       .
       "value": string,
-      "onCopy": unit => unit,
+      [@bs.meth] "onCopy": unit => unit,
       "hasCopied": bool,
     } =
     "useClipboard";
