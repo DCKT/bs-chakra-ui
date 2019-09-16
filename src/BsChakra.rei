@@ -12,6 +12,33 @@ module CSSReset: {
   external make: unit => React.element = "CSSReset";
 };
 
+module Hooks: {
+  [@bs.module "@chakra-ui/core"]
+  external useDisclosure:
+    unit =>
+    {
+      .
+      "isOpen": bool,
+      "onClose": unit => unit,
+      "onOpen": unit => unit,
+      "onToggle": unit => unit,
+    } =
+    "useDisclosure";
+
+  [@bs.module "@chakra-ui/core"]
+  external useClipboard:
+    unit =>
+    {
+      .
+      "value": string,
+      "onCopy": unit => unit,
+      "hasCopied": bool,
+    } =
+    "useClipboard";
+
+  [@bs.module "@chakra-ui/core"] external useTheme: unit => theme = "useTheme";
+};
+
 module Accordion = BsChakra__Accordion;
 module AccordionHeader = BsChakra__AccordionHeader;
 module AccordionItem = BsChakra__AccordionItem;

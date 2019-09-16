@@ -98,6 +98,6 @@ module App = {
 * [x] Text
 * [ ] Toast
 * [ ] Tooltip
-* [ ] useClipboard
-* [ ] useDisclosure
-* [ ] useTheme
+* [x] useClipboard
+* [x] useDisclosure
+* [x] useTheme
