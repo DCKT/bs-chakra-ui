@@ -37,6 +37,56 @@ module Hooks: {
     "useClipboard";
 
   [@bs.module "@chakra-ui/core"] external useTheme: unit => theme = "useTheme";
+
+  module Toast: {
+    [@bs.deriving abstract]
+    type config = {
+      [@bs.optional]
+      title: string,
+      [@bs.optional]
+      description: string,
+      [@bs.optional]
+      status: string,
+      [@bs.optional]
+      duration: int,
+      [@bs.optional]
+      isClosable: bool,
+      [@bs.optional]
+      position: string,
+      [@bs.optional]
+      render: unit => React.element,
+      [@bs.optional]
+      onClose: unit => unit,
+    };
+
+    [@bs.deriving jsConverter]
+    type position = [
+      | `top
+      | `topLeft
+      | `topRight
+      | `bottom
+      | `bottomLeft
+      | `bottomRight
+    ];
+
+    [@bs.deriving jsConverter]
+    type status = [ | `danger | `warning | `success | `info];
+  };
+
+  let useToast:
+    (
+      ~title: string=?,
+      ~isClosable: bool=?,
+      ~description: string=?,
+      ~duration: int=?,
+      ~render: unit => React.element=?,
+      ~onClose: unit => unit=?,
+      ~status: Toast.status=?,
+      ~position: Toast.position=?,
+      unit,
+      unit
+    ) =>
+    unit;
 };
 
 module Accordion = BsChakra__Accordion;

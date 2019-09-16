@@ -38,6 +38,70 @@ module Hooks = {
     "useClipboard";
 
   [@bs.module "@chakra-ui/core"] external useTheme: unit => theme = "useTheme";
+
+  module Toast = {
+    [@bs.deriving abstract]
+    type config = {
+      [@bs.optional]
+      title: string,
+      [@bs.optional]
+      description: string,
+      [@bs.optional]
+      status: string,
+      [@bs.optional]
+      duration: int,
+      [@bs.optional]
+      isClosable: bool,
+      [@bs.optional]
+      position: string,
+      [@bs.optional]
+      render: unit => React.element,
+      [@bs.optional]
+      onClose: unit => unit,
+    };
+
+    [@bs.deriving jsConverter]
+    type position = [
+      | `top
+      | [@bs.as "top-left"] `topLeft
+      | [@bs.as "top-right"] `topRight
+      | [@bs.as "bottom"] `bottom
+      | [@bs.as "bottom-left"] `bottomLeft
+      | [@bs.as "bottom-right"] `bottomRight
+    ];
+
+    [@bs.deriving jsConverter]
+    type status = [ | `danger | `warning | `success | `info];
+  };
+
+  [@bs.module "@chakra-ui/core"]
+  external _useToast: (Toast.config, unit) => unit = "useToast";
+
+  let useToast =
+      (
+        ~title=?,
+        ~isClosable=?,
+        ~description=?,
+        ~duration=?,
+        ~render=?,
+        ~onClose=?,
+        ~status: option(Toast.status)=?,
+        ~position: option(Toast.position)=?,
+        (),
+      ) =>
+    _useToast(
+      Toast.config(
+        ~title?,
+        ~description?,
+        ~isClosable?,
+        ~duration?,
+        ~render?,
+        ~onClose?,
+        ~status=?status->Belt.Option.map(v => v->Toast.statusToJs),
+        ~position=?position->Belt.Option.map(v => v->Toast.positionToJs),
+        (),
+      ),
+    );
 };
 
 module Accordion = BsChakra__Accordion;
