@@ -74,3 +74,7 @@ module AvatarGroup = BsChakra__AvatarGroup;
 module NumberInput = BsChakra__NumberInput;
 module Image = BsChakra__Image;
 module Types = BsChakra__Types;
+module Modal = BsChakra__Modal;
+module ModalHeader = BsChakra__ModalHeader;
+module ModalFooter = BsChakra__ModalFooter;
+module ModalBody = BsChakra__ModalBody;
