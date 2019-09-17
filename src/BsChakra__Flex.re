@@ -20,7 +20,6 @@ external make:
     ~px: 'px=?,
     ~py: 'py=?,
     ~opacity: float=?,
-    ~boxShadow: string=?,
     ~direction: 'direction=?,
     ~width: 'wid=?,
     ~height: 'hei=?,
@@ -50,7 +49,6 @@ let makeProps =
       ~paddingRight: option(responsiveValue(int))=?,
       ~px: option(responsiveValue(int))=?,
       ~py: option(responsiveValue(int))=?,
-      ~boxShadow: option(shadowProps)=?,
       ~maxWidth: option(responsiveValue(string))=?,
       ~maxHeight: option(responsiveValue(string))=?,
       ~width: option(responsiveValue(string))=?,
@@ -65,14 +63,6 @@ let makeProps =
   makeProps(
     ~bg=?bg->mapToColor,
     ~color=?color->mapToColor,
-    ~boxShadow=?
-      boxShadow
-      ->Belt.Option.map(key =>
-          switch (key) {
-          | Theme(value) => shadowToJs(value)
-          | Custom(value) => value
-          }
-        ),
     ~margin=?margin->extractProps(v => v),
     ~marginTop=?marginTop->extractProps(v => v),
     ~marginBottom=?marginBottom->extractProps(v => v),
