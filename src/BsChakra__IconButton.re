@@ -3,7 +3,6 @@ open BsChakra__Types;
 [@bs.module "@chakra-ui/core"] [@react.component]
 external make:
   (
-    ~children: React.element,
     ~variantColor: string=?,
     ~size: 'size=?,
     ~variant: [@bs.string] [ | `solid | `ghost | `outline | `link]=?,
