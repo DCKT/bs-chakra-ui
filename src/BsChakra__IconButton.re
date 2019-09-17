@@ -10,13 +10,14 @@ external make:
     ~isLoading: bool=?,
     ~isDisabled: bool=?,
     ~ariaLabel: string=?,
+    ~isRound: bool=?,
     ~onClick: ReactEvent.Mouse.t => unit=?,
     ~width: 'w=?,
     ~height: 'h=?,
     ~icon: 'h=?
   ) =>
   React.element =
-  "Button";
+  "IconButton";
 
 let makeProps =
     (
