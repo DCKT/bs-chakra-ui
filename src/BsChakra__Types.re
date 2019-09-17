@@ -246,6 +246,77 @@ type textAlign = [ | `left | `center | `right | `justify];
 [@bs.deriving jsConverter]
 type font = [ | `body | `heading | `mono];
 
+[@bs.deriving jsConverter]
+type icon = [
+  | `copy
+  | `search
+  | `moon
+  | `sun
+  | `add
+  | `settings
+  | `settings
+  | `lock
+  | `unlock
+  | `view
+  | `download
+  | `delete
+  | `repeat
+  | `edit
+  | `link
+  | `chat
+  | `calendar
+  | `time
+  | `attachment
+  | `star
+  | `email
+  | `phone
+  | `spinner
+  | `close
+  | `bell
+  | `info
+  | `question
+  | `warning
+  | `check
+  | `minus
+  | [@bs.as "drag-handle"] `dragHandle
+  | [@bs.as "warning-2"] `warning2
+  | [@bs.as "info-outline"] `infoOutline
+  | [@bs.as "arrow-up-down"] `arrowUpDown
+  | [@bs.as "question-outline"] `questionOutline
+  | [@bs.as "small-close"] `smallClose
+  | [@bs.as "not-allowed"] `notAllowed
+  | [@bs.as "triangle-down"] `triangleDown
+  | [@bs.as "triangle-up"] `triangleUp
+  | [@bs.as "up-down"] `upDown
+  | [@bs.as "at-sign"] `atSign
+  | [@bs.as "plus-square"] `plusSquare
+  | [@bs.as "chevron-right"] `chevronRight
+  | [@bs.as "external-link"] `externalLink
+  | [@bs.as "chevron-left"] `chevronLeft
+  | [@bs.as "chevron-down"] `chevronDown
+  | [@bs.as "chevron-up"] `chevronUp
+  | [@bs.as "arrow-up"] `arrowUp
+  | [@bs.as "arrow-left"] `arrowLeft
+  | [@bs.as "arrow-right"] `arrowRight
+  | [@bs.as "arrow-down"] `arrowDown
+  | [@bs.as "arrow-back"] `arrowBack
+  | [@bs.as "arrow-forward"] `arrowForward
+  | [@bs.as "search-2"] `search2
+  | [@bs.as "repeat-clock"] `repeatClock
+  | [@bs.as "small-add"] `smallAdd
+  | [@bs.as "check-circle"] `checkCircle
+  | [@bs.as "view-off"] `viewOff
+];
+
+type iconProps =
+  | Theme(icon)
+  | CustomTheme(string);
+
+type iconButtonProps =
+  | Theme(icon)
+  | CustomTheme(string)
+  | Element(React.element);
+
 external returnHack: 'a => 'b = "%identity";
 
 let extractProps = (props, toJs) =>

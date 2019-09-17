@@ -127,3 +127,5 @@ module Modal = BsChakra__Modal;
 module ModalHeader = BsChakra__ModalHeader;
 module ModalFooter = BsChakra__ModalFooter;
 module ModalBody = BsChakra__ModalBody;
+module Icon = BsChakra__Icon;
+module IconButton = BsChakra__IconButton;
