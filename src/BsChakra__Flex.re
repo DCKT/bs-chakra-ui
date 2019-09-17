@@ -4,6 +4,7 @@ open BsChakra__Types;
 external make:
   (
     ~children: React.element,
+    ~boxShadow: 'box=?,
     ~bg: 'bg=?,
     ~color: 'color=?,
     ~margin: 'margin=?,
@@ -59,6 +60,7 @@ let makeProps =
       ~justify: option(responsiveValue(flexAlignment))=?,
       ~direction: option(responsiveValue(flexDirection))=?,
       ~wrap: option(responsiveValue(flexWrap))=?,
+      ~boxShadow: option(responsiveValue(shadowProps))=?,
     ) =>
   makeProps(
     ~bg=?bg->mapToColor,
@@ -92,4 +94,27 @@ let makeProps =
     ~justify=?justify->extractProps(flexAlignmentToJs),
     ~direction=?direction->extractProps(flexDirectionToJs),
     ~wrap=?wrap->extractProps(flexWrapToJs),
+    ~boxShadow=?
+      boxShadow
+      ->Belt.Option.map(p =>
+          switch (p) {
+          | All(v) =>
+            returnHack(
+              switch (v) {
+              | Theme(value) => shadowToJs(value)
+              | Custom(value) => value
+              },
+            )
+          | Responsive(v) =>
+            returnHack(
+              v
+              ->Belt.Array.map(value =>
+                  switch (value) {
+                  | Theme(value) => shadowToJs(value)
+                  | Custom(value) => value
+                  }
+                ),
+            )
+          }
+        ),
   );
