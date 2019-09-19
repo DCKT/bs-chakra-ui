@@ -4,7 +4,7 @@ open BsChakra__Types;
 external make:
   (
     ~children: React.element,
-    ~boxShadow: 'box=?,
+    ~boxShadow: 'boxShadow=?,
     ~bg: 'bg=?,
     ~color: 'color=?,
     ~margin: 'margin=?,
