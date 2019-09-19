@@ -1,7 +1,7 @@
 [@bs.module "@chakra-ui/core"] [@react.component]
 external make:
   (
-    ~isOpen: bool,
+    ~isOpen: bool=?,
     ~autoSelect: bool=?,
     ~closeOnSelect: bool=?,
     ~closeOnBlur: bool=?,
