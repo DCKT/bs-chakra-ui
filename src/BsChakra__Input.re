@@ -8,6 +8,7 @@ external make:
     ~roundedLeft: string=?,
     ~onChange: 'a => unit=?,
     ~onBlur: 'a => unit=?,
+    ~onFocus: 'a => unit=?,
     ~value: string=?,
     ~rounded: string=?,
     ~isRequired: bool=?,
