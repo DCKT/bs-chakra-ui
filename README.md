@@ -69,7 +69,7 @@ module App = {
 * [ ] ControlBox
 * [ ] Drawer
 * [ ] Editable
-* [*] Flex
+* [x] Flex
 * [x] FormControl
 * [x] FormHelperText
 * [x] FormErrorMessage
