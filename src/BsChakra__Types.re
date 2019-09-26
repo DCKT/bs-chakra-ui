@@ -228,7 +228,7 @@ type avatarSize = [
 ];
 
 [@bs.deriving jsConverter]
-type modalSize = [ | `lg | `md | `sm | `xs];
+type modalSize = [ | `full | `xl | `lg | `md | `sm | `xs];
 
 [@bs.deriving jsConverter]
 type letterSpacing = [
@@ -320,10 +320,9 @@ type iconButtonProps =
 external returnHack: 'a => 'b = "%identity";
 
 let extractProps = (props, toJs) =>
-  props
-  ->Belt.Option.map(p =>
-      switch (p) {
-      | All(v) => returnHack(toJs(v))
-      | Responsive(v) => returnHack(v->Array.map(value => value->toJs))
-      }
-    );
+  props->Belt.Option.map(p =>
+    switch (p) {
+    | All(v) => returnHack(toJs(v))
+    | Responsive(v) => returnHack(v->Array.map(value => value->toJs))
+    }
+  );

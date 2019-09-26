@@ -8,7 +8,9 @@ external make:
     ~isCentered: bool=?,
     ~initialFocusRef: ReactDOMRe.Ref.t=?,
     ~onClose: unit => unit,
-    ~children: React.element
+    ~children: React.element,
+    ~blockScrollOnMount: bool=?,
+    ~useInert: bool=?
   ) =>
   React.element =
   "Modal";
