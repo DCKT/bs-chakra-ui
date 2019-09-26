@@ -10,7 +10,8 @@ external make:
     ~font: 'f=?,
     ~letterSpacing: 'letter=?,
     ~lineHeight: 'b=?,
-    ~fontSize: 'a=?
+    ~fontSize: 'a=?,
+    ~color: 'color=?
   ) =>
   React.element =
   "Text";
@@ -22,6 +23,7 @@ let makeProps =
       ~font: option(responsiveValue(font))=?,
       ~letterSpacing: option(responsiveValue(letterSpacing))=?,
       ~textAlign: option(responsiveValue(textAlign))=?,
+      ~color: option(color)=?,
     ) =>
   makeProps(
     ~fontSize=?fontSize->extractProps(fontSizeToJs),
@@ -29,4 +31,5 @@ let makeProps =
     ~font=?font->extractProps(fontToJs),
     ~letterSpacing=?letterSpacing->extractProps(letterSpacingToJs),
     ~textAlign=?textAlign->extractProps(textAlignToJs),
+    ~color=?color->mapToColor,
   );
