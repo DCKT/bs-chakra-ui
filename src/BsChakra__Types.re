@@ -317,6 +317,10 @@ type iconButtonProps =
   | CustomTheme(string)
   | Element(React.element);
 
+type marginProps =
+  | Theme(int)
+  | Custom(string);
+
 external returnHack: 'a => 'b = "%identity";
 
 let extractProps = (props, toJs) =>
@@ -326,3 +330,43 @@ let extractProps = (props, toJs) =>
     | Responsive(v) => returnHack(v->Array.map(value => value->toJs))
     }
   );
+
+let extractMarginProps = (props: option(responsiveValue(marginProps))) => {
+  props->Option.map(m =>
+    switch (m) {
+    | All(v) => returnHack(v)
+    | Responsive(v) =>
+      returnHack(
+        v->Array.map(value =>
+          switch (value) {
+          | Theme(value) => returnHack(value)
+          | Custom(value) => returnHack(value)
+          }
+        ),
+      )
+    }
+  );
+};
+
+let extractBoxShadowProps = (props: option(responsiveValue(shadowProps))) => {
+  props->Option.map(p =>
+    switch (p) {
+    | All(v) =>
+      returnHack(
+        switch (v) {
+        | Theme(value) => shadowToJs(value)
+        | Custom(value) => value
+        },
+      )
+    | Responsive(v) =>
+      returnHack(
+        v->Array.map(value =>
+          switch (value) {
+          | Theme(value) => shadowToJs(value)
+          | Custom(value) => value
+          }
+        ),
+      )
+    }
+  );
+};

@@ -37,11 +37,11 @@ let makeProps =
     (
       ~bg: option(color)=?,
       ~color: option(color)=?,
-      ~margin: option(responsiveValue(int))=?,
-      ~marginTop: option(responsiveValue(int))=?,
-      ~marginBottom: option(responsiveValue(int))=?,
-      ~marginLeft: option(responsiveValue(int))=?,
-      ~marginRight: option(responsiveValue(int))=?,
+      ~margin: option(responsiveValue(marginProps))=?,
+      ~marginTop: option(responsiveValue(marginProps))=?,
+      ~marginBottom: option(responsiveValue(marginProps))=?,
+      ~marginLeft: option(responsiveValue(marginProps))=?,
+      ~marginRight: option(responsiveValue(marginProps))=?,
       ~padding: option(responsiveValue(int))=?,
       ~paddingTop: option(responsiveValue(int))=?,
       ~paddingBottom: option(responsiveValue(int))=?,
@@ -63,11 +63,11 @@ let makeProps =
   makeProps(
     ~bg=?bg->mapToColor,
     ~color=?color->mapToColor,
-    ~margin=?margin->extractProps(v => v),
-    ~marginTop=?marginTop->extractProps(v => v),
-    ~marginBottom=?marginBottom->extractProps(v => v),
-    ~marginLeft=?marginLeft->extractProps(v => v),
-    ~marginRight=?marginRight->extractProps(v => v),
+    ~margin=?margin->extractMarginProps,
+    ~marginTop=?marginTop->extractMarginProps,
+    ~marginBottom=?marginBottom->extractMarginProps,
+    ~marginLeft=?marginLeft->extractMarginProps,
+    ~marginRight=?marginRight->extractMarginProps,
     ~padding=?padding->extractProps(v => v),
     ~paddingTop=?paddingTop->extractProps(v => v),
     ~paddingBottom=?paddingBottom->extractProps(v => v),
@@ -85,26 +85,24 @@ let makeProps =
     ~direction=?direction->extractProps(flexDirectionToJs),
     ~wrap=?wrap->extractProps(flexWrapToJs),
     ~boxShadow=?
-      boxShadow
-      ->Belt.Option.map(p =>
-          switch (p) {
-          | All(v) =>
-            returnHack(
-              switch (v) {
+      boxShadow->Belt.Option.map(p =>
+        switch (p) {
+        | All(v) =>
+          returnHack(
+            switch (v) {
+            | Theme(value) => shadowToJs(value)
+            | Custom(value) => value
+            },
+          )
+        | Responsive(v) =>
+          returnHack(
+            v->Belt.Array.map(value =>
+              switch (value) {
               | Theme(value) => shadowToJs(value)
               | Custom(value) => value
-              },
-            )
-          | Responsive(v) =>
-            returnHack(
-              v
-              ->Belt.Array.map(value =>
-                  switch (value) {
-                  | Theme(value) => shadowToJs(value)
-                  | Custom(value) => value
-                  }
-                ),
-            )
-          }
-        ),
+              }
+            ),
+          )
+        }
+      ),
   );
