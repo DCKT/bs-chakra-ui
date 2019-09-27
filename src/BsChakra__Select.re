@@ -30,8 +30,8 @@ external make:
     ~paddingRight: 'pRig=?,
     ~px: 'px=?,
     ~py: 'py=?,
-    ~size: [@bs.string] [ | `sm | `md | `lg]=?
-    ~children,
+    ~size: [@bs.string] [ | `sm | `md | `lg]=?,
+    ~children: React.element
   ) =>
   React.element =
   "Select";
