@@ -31,6 +31,7 @@ external make:
     ~px: 'px=?,
     ~py: 'py=?,
     ~size: [@bs.string] [ | `sm | `md | `lg]=?
+    ~children,
   ) =>
   React.element =
   "Select";
