@@ -5,7 +5,6 @@ external make:
   (
     ~placeholder: string=?,
     ~id: string=?,
-    ~roundedLeft: string=?,
     ~onChange: 'a => unit=?,
     ~onBlur: 'a => unit=?,
     ~onFocus: 'a => unit=?,
@@ -17,6 +16,7 @@ external make:
     ~isInvalid: bool=?,
     ~isDisabled: bool=?,
     ~variant: [@bs.string] [ | `outline | `unstyled | `flushed | `filled]=?,
+    ~resize: [@bs.string] [ | `vertical | `horizontal | `none]=?,
     ~focusBorderColor: 'focusBorderColor=?,
     ~margin: 'margin=?,
     ~marginTop: 'marginTop=?,
@@ -30,20 +30,10 @@ external make:
     ~paddingRight: 'pRig=?,
     ~px: 'px=?,
     ~py: 'py=?,
-    ~size: [@bs.string] [ | `sm | `md | `lg]=?,
-    ~_type: [@bs.string] [
-              | `text
-              | `phone
-              | `password
-              | `number
-              | `date
-              | `checkbox
-              | `radio
-              | `email
-            ]
+    ~size: [@bs.string] [ | `sm | `md | `lg]=?
   ) =>
   React.element =
-  "Input";
+  "Textarea";
 
 let makeProps =
     (
