@@ -28,7 +28,10 @@ external make:
     ~flex: 'maxH=?,
     ~wrap: 'wrap=?,
     ~align: 'align=?,
-    ~justify: 'justify=?
+    ~justify: 'justify=?,
+    ~overflow: 'overflow=?,
+    ~overflowX: 'overflowX=?,
+    ~overflowY: 'overflowY=?
   ) =>
   React.element =
   "Flex";
@@ -59,6 +62,9 @@ let makeProps =
       ~direction: option(responsiveValue(flexDirection))=?,
       ~wrap: option(responsiveValue(flexWrap))=?,
       ~boxShadow: option(responsiveValue(shadowProps))=?,
+      ~overflow: option(responsiveValue(overflow))=?,
+      ~overflowX: option(responsiveValue(overflow))=?,
+      ~overflowY: option(responsiveValue(overflow))=?,
     ) =>
   makeProps(
     ~bg=?bg->mapToColor,
@@ -84,6 +90,9 @@ let makeProps =
     ~justify=?justify->extractProps(flexAlignmentToJs),
     ~direction=?direction->extractProps(flexDirectionToJs),
     ~wrap=?wrap->extractProps(flexWrapToJs),
+    ~overflow=?overflow->extractProps(overflowToJs),
+    ~overflowX=?overflowX->extractProps(overflowToJs),
+    ~overflowY=?overflowY->extractProps(overflowToJs),
     ~boxShadow=?
       boxShadow->Belt.Option.map(p =>
         switch (p) {

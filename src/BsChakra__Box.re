@@ -26,6 +26,9 @@ external make:
     ~maxHeight: 'maxH=?,
     ~minWidth: 'minW=?,
     ~minHeight: 'minH=?,
+    ~overflow: 'overflow=?,
+    ~overflowX: 'overflowX=?,
+    ~overflowY: 'overflowY=?,
     ~position: [@bs.string] [ | `relative | `static | `absolute]=?,
     ~_as: string=?
   ) =>
@@ -36,6 +39,9 @@ let makeProps =
     (
       ~bg: option(color)=?,
       ~color: option(color)=?,
+      ~overflow: option(responsiveValue(overflow))=?,
+      ~overflowX: option(responsiveValue(overflow))=?,
+      ~overflowY: option(responsiveValue(overflow))=?,
       ~margin: option(responsiveValue(marginProps))=?,
       ~marginTop: option(responsiveValue(marginProps))=?,
       ~marginBottom: option(responsiveValue(marginProps))=?,
@@ -78,4 +84,7 @@ let makeProps =
     ~minWidth=?minWidth->extractProps(v => v),
     ~height=?height->extractProps(v => v),
     ~width=?width->extractProps(v => v),
+    ~overflow=?overflow->extractProps(overflowToJs),
+    ~overflowX=?overflowX->extractProps(overflowToJs),
+    ~overflowY=?overflowY->extractProps(overflowToJs),
   );

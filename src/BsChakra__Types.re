@@ -166,6 +166,17 @@ type flexDirection = [
 ];
 
 [@bs.deriving jsConverter]
+type overflow = [
+  | `overflow
+  | `visible
+  | `scroll
+  | `auto
+  | `initial
+  | `hidden
+  | `unset
+];
+
+[@bs.deriving jsConverter]
 type flexWrap = [
   | `wrap
   | `nowrap
