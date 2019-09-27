@@ -155,3 +155,4 @@ module MenuGroup = BsChakra__MenuGroup;
 module MenuOptionGroup = BsChakra__MenuOptionGroup;
 module MenuButton = BsChakra__MenuButton;
 module Textarea = BsChakra__Textarea;
+module Select = BsChakra__Select;
