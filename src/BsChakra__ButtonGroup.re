@@ -14,5 +14,5 @@ let makeProps =
       ~spacing: option(responsiveValue(spaceProps))=?,
     ) =>
   makeProps(
-    ~spacing=?size->extractSpaceProps,
+    ~spacing=?spacing->extractSpaceProps,
   );
