@@ -22,18 +22,18 @@ let makeProps =
     (
       ~align: option(responsiveValue(flexAlignment))=?,
       ~justify: option(responsiveValue(flexAlignment))=?,
-      ~margin: option(responsiveValue(marginProps))=?,
-      ~marginTop: option(responsiveValue(marginProps))=?,
-      ~marginBottom: option(responsiveValue(marginProps))=?,
-      ~marginLeft: option(responsiveValue(marginProps))=?,
-      ~marginRight: option(responsiveValue(marginProps))=?,
+      ~margin: option(responsiveValue(spaceProps))=?,
+      ~marginTop: option(responsiveValue(spaceProps))=?,
+      ~marginBottom: option(responsiveValue(spaceProps))=?,
+      ~marginLeft: option(responsiveValue(spaceProps))=?,
+      ~marginRight: option(responsiveValue(spaceProps))=?,
     ) =>
   makeProps(
     ~align=?align->extractProps(flexAlignmentToJs),
     ~justify=?justify->extractProps(flexAlignmentToJs),
-    ~margin=?margin->extractMarginProps,
-    ~marginTop=?marginTop->extractMarginProps,
-    ~marginBottom=?marginBottom->extractMarginProps,
-    ~marginLeft=?marginLeft->extractMarginProps,
-    ~marginRight=?marginRight->extractMarginProps,
+    ~margin=?margin->extractSpaceProps,
+    ~marginTop=?marginTop->extractSpaceProps,
+    ~marginBottom=?marginBottom->extractSpaceProps,
+    ~marginLeft=?marginLeft->extractSpaceProps,
+    ~marginRight=?marginRight->extractSpaceProps,
   );

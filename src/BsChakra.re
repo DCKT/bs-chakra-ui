@@ -110,6 +110,7 @@ module AccordionItem = BsChakra__AccordionItem;
 module AccordionPanel = BsChakra__AccordionPanel;
 module AccordionIcon = BsChakra__AccordionIcon;
 module Button = BsChakra__Button;
+module ButtonGroup = BsChakra__ButtonGroup;
 module Switch = BsChakra__Switch;
 module Stack = BsChakra__Stack;
 module FormLabel = BsChakra__FormLabel;

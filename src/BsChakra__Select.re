@@ -39,11 +39,11 @@ external make:
 let makeProps =
     (
       ~focusBorderColor: option(color)=?,
-      ~margin: option(responsiveValue(marginProps))=?,
-      ~marginTop: option(responsiveValue(marginProps))=?,
-      ~marginBottom: option(responsiveValue(marginProps))=?,
-      ~marginLeft: option(responsiveValue(marginProps))=?,
-      ~marginRight: option(responsiveValue(marginProps))=?,
+      ~margin: option(responsiveValue(spaceProps))=?,
+      ~marginTop: option(responsiveValue(spaceProps))=?,
+      ~marginBottom: option(responsiveValue(spaceProps))=?,
+      ~marginLeft: option(responsiveValue(spaceProps))=?,
+      ~marginRight: option(responsiveValue(spaceProps))=?,
       ~padding: option(responsiveValue(int))=?,
       ~paddingTop: option(responsiveValue(int))=?,
       ~paddingBottom: option(responsiveValue(int))=?,
@@ -54,11 +54,11 @@ let makeProps =
     ) =>
   makeProps(
     ~focusBorderColor=?focusBorderColor->mapToColor,
-    ~margin=?margin->extractMarginProps,
-    ~marginTop=?marginTop->extractMarginProps,
-    ~marginBottom=?marginBottom->extractMarginProps,
-    ~marginLeft=?marginLeft->extractMarginProps,
-    ~marginRight=?marginRight->extractMarginProps,
+    ~margin=?margin->extractSpaceProps,
+    ~marginTop=?marginTop->extractSpaceProps,
+    ~marginBottom=?marginBottom->extractSpaceProps,
+    ~marginLeft=?marginLeft->extractSpaceProps,
+    ~marginRight=?marginRight->extractSpaceProps,
     ~padding=?padding->extractProps(v => v),
     ~paddingTop=?paddingTop->extractProps(v => v),
     ~paddingBottom=?paddingBottom->extractProps(v => v),

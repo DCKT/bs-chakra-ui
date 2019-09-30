@@ -328,7 +328,7 @@ type iconButtonProps =
   | CustomTheme(string)
   | Element(React.element);
 
-type marginProps =
+type spaceProps =
   | Theme(int)
   | Custom(string);
 
@@ -342,7 +342,7 @@ let extractProps = (props, toJs) =>
     }
   );
 
-let extractMarginProps = (props: option(responsiveValue(marginProps))) => {
+let extractSpaceProps = (props: option(responsiveValue(spaceProps))) => {
   props->Option.map(m =>
     switch (m) {
     | All(v) => returnHack(v)
