@@ -11,7 +11,8 @@ external make:
     ~letterSpacing: 'letter=?,
     ~lineHeight: 'b=?,
     ~fontSize: 'a=?,
-    ~color: 'color=?
+    ~color: 'color=?,
+    ~isTruncated: bool=?,
   ) =>
   React.element =
   "Text";

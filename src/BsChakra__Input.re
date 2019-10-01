@@ -40,6 +40,7 @@ external make:
               | `checkbox
               | `radio
               | `email
+              | `url
             ]
   ) =>
   React.element =
