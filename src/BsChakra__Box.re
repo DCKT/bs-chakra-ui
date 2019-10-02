@@ -30,7 +30,9 @@ external make:
     ~overflowX: 'overflowX=?,
     ~overflowY: 'overflowY=?,
     ~position: [@bs.string] [ | `relative | `static | `absolute]=?,
-    ~_as: string=?
+    ~_as: string=?,
+    ~rounded: 'rounded=?,
+    ~border: 'border=?
   ) =>
   React.element =
   "Box";
@@ -61,6 +63,8 @@ let makeProps =
       ~width: option(responsiveValue(string))=?,
       ~height: option(responsiveValue(string))=?,
       ~boxShadow: option(responsiveValue(shadowProps))=?,
+      ~rounded: option(responsiveValue(radiiProps))=?,
+      ~border: option(responsiveValue(borderProps))=?,
     ) =>
   makeProps(
     ~bg=?bg->mapToColor,
@@ -87,4 +91,6 @@ let makeProps =
     ~overflow=?overflow->extractProps(overflowToJs),
     ~overflowX=?overflowX->extractProps(overflowToJs),
     ~overflowY=?overflowY->extractProps(overflowToJs),
+    ~rounded=?rounded->extractProps(radiiPropsToJs),
+    ~border=?border->extractBorderProps,
   );

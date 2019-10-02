@@ -14,7 +14,9 @@ external make:
     ~letterSpacing: 'letter=?,
     ~lineHeight: 'b=?,
     ~fontSize: 'a=?,
-    ~color: 'a=?
+    ~color: 'a=?,
+    ~_as: React.element=?,
+    ~_to: 'a=?
   ) =>
   React.element =
   "Link";

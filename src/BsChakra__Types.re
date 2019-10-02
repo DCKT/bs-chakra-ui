@@ -332,6 +332,21 @@ type spaceProps =
   | Theme(int)
   | Custom(string);
 
+[@bs.deriving jsConverter]
+type radiiProps = [ | `none | `sm | `md | `lg | `full];
+
+[@bs.deriving jsConverter]
+type border = [
+  | `none
+  | [@bs.as "1px"] `xs
+  | [@bs.as "2px"] `sm
+  | [@bs.as "4px"] `md
+];
+
+type borderProps =
+  | Theme(border)
+  | Custom(string);
+
 external returnHack: 'a => 'b = "%identity";
 
 let extractProps = (props, toJs) =>
@@ -374,6 +389,29 @@ let extractBoxShadowProps = (props: option(responsiveValue(shadowProps))) => {
         v->Array.map(value =>
           switch (value) {
           | Theme(value) => shadowToJs(value)
+          | Custom(value) => value
+          }
+        ),
+      )
+    }
+  );
+};
+
+let extractBorderProps = (props: option(responsiveValue(borderProps))) => {
+  props->Option.map(p =>
+    switch (p) {
+    | All(v) =>
+      returnHack(
+        switch (v) {
+        | Theme(value) => borderToJs(value)
+        | Custom(value) => value
+        },
+      )
+    | Responsive(v) =>
+      returnHack(
+        v->Array.map(value =>
+          switch (value) {
+          | Theme(value) => borderToJs(value)
           | Custom(value) => value
           }
         ),
