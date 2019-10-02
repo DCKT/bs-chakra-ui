@@ -13,6 +13,12 @@ external make:
     ~marginBottom: 'marginBottom=?,
     ~marginLeft: 'marginLeft=?,
     ~marginRight: 'marginRight=?,
+    ~maxWidth: 'maxW=?,
+    ~maxHeight: 'maxH=?,
+    ~minWidth: 'minW=?,
+    ~minHeight: 'minH=?,
+    ~width: 'wid=?,
+    ~height: 'hei=?,
     ~position: [@bs.string] [ | `relative | `static | `absolute]=?
   ) =>
   React.element =
@@ -27,6 +33,13 @@ let makeProps =
       ~marginBottom: option(responsiveValue(spaceProps))=?,
       ~marginLeft: option(responsiveValue(spaceProps))=?,
       ~marginRight: option(responsiveValue(spaceProps))=?,
+      ~maxWidth: option(responsiveValue(string))=?,
+      ~maxHeight: option(responsiveValue(string))=?,
+      ~minWidth: option(responsiveValue(string))=?,
+      ~minHeight: option(responsiveValue(string))=?,
+      ~width: option(responsiveValue(string))=?,
+      ~height: option(responsiveValue(string))=?,
+      
     ) =>
   makeProps(
     ~align=?align->extractProps(flexAlignmentToJs),
@@ -36,4 +49,10 @@ let makeProps =
     ~marginBottom=?marginBottom->extractSpaceProps,
     ~marginLeft=?marginLeft->extractSpaceProps,
     ~marginRight=?marginRight->extractSpaceProps,
+    ~maxHeight=?maxHeight->extractProps(v => v),
+    ~maxWidth=?maxWidth->extractProps(v => v),
+    ~minHeight=?minHeight->extractProps(v => v),
+    ~minWidth=?minWidth->extractProps(v => v),
+    ~height=?height->extractProps(v => v),
+    ~width=?width->extractProps(v => v),
   );
