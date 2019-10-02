@@ -158,3 +158,4 @@ module MenuButton = BsChakra__MenuButton;
 module Textarea = BsChakra__Textarea;
 module Select = BsChakra__Select;
 module CloseButton = BsChakra__CloseButton;
+module AspectRatioBox = BsChakra__AspectRatioBox;
