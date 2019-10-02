@@ -31,7 +31,9 @@ external make:
     ~justify: 'justify=?,
     ~overflow: 'overflow=?,
     ~overflowX: 'overflowX=?,
-    ~overflowY: 'overflowY=?
+    ~overflowY: 'overflowY=?,
+    ~rounded: 'rounded=?,
+    ~border: 'border=?
   ) =>
   React.element =
   "Flex";
@@ -65,6 +67,8 @@ let makeProps =
       ~overflow: option(responsiveValue(overflow))=?,
       ~overflowX: option(responsiveValue(overflow))=?,
       ~overflowY: option(responsiveValue(overflow))=?,
+      ~rounded: option(responsiveValue(radiiProps))=?,
+      ~border: option(responsiveValue(borderProps))=?,
     ) =>
   makeProps(
     ~bg=?bg->mapToColor,
@@ -114,4 +118,6 @@ let makeProps =
           )
         }
       ),
+    ~rounded=?rounded->extractProps(radiiPropsToJs),
+    ~border=?border->extractBorderProps,
   );
