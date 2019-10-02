@@ -7,14 +7,14 @@ Bucklescript bindings for [chakra-ui](https://chakra-ui.com).
 ## Install
 
 ```
-yarn add @dck/bs-chakra-ui
+yarn add @colisweb/bs-chakra-ui
 ```
 
 Add it to `bs-dependencies` in your `bsconfig.json` :
 
 ```json
 {
-  "bs-dependencies": ["@dck/bs-chakra-ui"]
+  "bs-dependencies": ["@colisweb/bs-chakra-ui"]
 }
 ```
 
@@ -53,51 +53,51 @@ module App = {
 
 ### Todo
 
-* [x] Accordion
-* [x] Alert
-* [ ] AspectRatioBox
-* [x] Avatar
-* [ ] Badge
-* [x] Box 🚧
-* [ ] Breadcrumb
-* [x] Button 🚧
-* [ ] Checkbox
-* [x] CircularProgress
-* [ ] CloseButton
-* [ ] Code
-* [ ] Collapse
-* [ ] ControlBox
-* [ ] Drawer
-* [ ] Editable
-* [x] Flex
-* [x] FormControl
-* [x] FormHelperText
-* [x] FormErrorMessage
-* [x] Heading
-* [x] Icon
-* [x] IconButton
-* [x] Image
-* [x] Input
-* [x] Link
-* [ ] List
-* [x] Modal
-* [x] Menu
-* [x] NumberInput
-* [ ] Popover
-* [ ] Progress
-* [ ] PseudoBox
-* [ ] Radio
-* [ ] Slider
-* [x] Spinner
-* [ ] Stat
-* [x] Stack
-* [x] Switch
-* [ ] Tabs
-* [ ] Tag
-* [ ] Textarea
-* [x] Text
-* [ ] Toast
-* [ ] Tooltip
-* [x] useClipboard
-* [x] useDisclosure
-* [x] useTheme
+- [x] Accordion
+- [x] Alert
+- [ ] AspectRatioBox
+- [x] Avatar
+- [ ] Badge
+- [x] Box 🚧
+- [ ] Breadcrumb
+- [x] Button 🚧
+- [ ] Checkbox
+- [x] CircularProgress
+- [ ] CloseButton
+- [ ] Code
+- [ ] Collapse
+- [ ] ControlBox
+- [ ] Drawer
+- [ ] Editable
+- [x] Flex
+- [x] FormControl
+- [x] FormHelperText
+- [x] FormErrorMessage
+- [x] Heading
+- [x] Icon
+- [x] IconButton
+- [x] Image
+- [x] Input
+- [x] Link
+- [ ] List
+- [x] Modal
+- [x] Menu
+- [x] NumberInput
+- [ ] Popover
+- [ ] Progress
+- [ ] PseudoBox
+- [ ] Radio
+- [ ] Slider
+- [x] Spinner
+- [ ] Stat
+- [x] Stack
+- [x] Switch
+- [ ] Tabs
+- [ ] Tag
+- [ ] Textarea
+- [x] Text
+- [ ] Toast
+- [ ] Tooltip
+- [x] useClipboard
+- [x] useDisclosure
+- [x] useTheme
