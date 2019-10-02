@@ -19,6 +19,7 @@ external make:
     ~minHeight: 'minH=?,
     ~width: 'wid=?,
     ~height: 'hei=?,
+    ~wrap: 'wrap=?,
     ~position: [@bs.string] [ | `relative | `static | `absolute]=?
   ) =>
   React.element =
@@ -39,7 +40,7 @@ let makeProps =
       ~minHeight: option(responsiveValue(string))=?,
       ~width: option(responsiveValue(string))=?,
       ~height: option(responsiveValue(string))=?,
-      
+      ~wrap: option(responsiveValue(flexWrap))=?,
     ) =>
   makeProps(
     ~align=?align->extractProps(flexAlignmentToJs),
@@ -55,4 +56,5 @@ let makeProps =
     ~minWidth=?minWidth->extractProps(v => v),
     ~height=?height->extractProps(v => v),
     ~width=?width->extractProps(v => v),
+    ~wrap=?wrap->extractProps(flexWrapToJs),
   );
