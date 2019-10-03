@@ -7,14 +7,14 @@ Bucklescript bindings for [chakra-ui](https://chakra-ui.com).
 ## Install
 
 ```
-yarn add @colisweb/bs-chakra-ui
+yarn add @dck/bs-chakra-ui
 ```
 
 Add it to `bs-dependencies` in your `bsconfig.json` :
 
 ```json
 {
-  "bs-dependencies": ["@colisweb/bs-chakra-ui"]
+  "bs-dependencies": ["@dck/bs-chakra-ui"]
 }
 ```
 

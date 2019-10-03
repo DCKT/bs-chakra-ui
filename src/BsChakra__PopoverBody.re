@@ -1,1 +1,2 @@
-[@bs.module "@chakra-ui/core"] [@react.component] external make: unit => React.element = "PopoverBody";
+[@bs.module "@chakra-ui/core"] [@react.component]
+external make: (~children: React.element) => React.element = "PopoverBody";
