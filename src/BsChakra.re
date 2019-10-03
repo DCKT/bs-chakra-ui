@@ -4,13 +4,11 @@ type theme;
 
 module ThemeProvider = {
   [@bs.module "@chakra-ui/core"] [@react.component]
-  external make: (~theme: theme, ~children: React.element) => React.element =
-    "ThemeProvider";
+  external make: (~theme: theme, ~children: React.element) => React.element = "ThemeProvider";
 };
 
 module CSSReset = {
-  [@bs.module "@chakra-ui/core"] [@react.component]
-  external make: unit => React.element = "CSSReset";
+  [@bs.module "@chakra-ui/core"] [@react.component] external make: unit => React.element = "CSSReset";
 };
 
 module Hooks = {
@@ -74,8 +72,7 @@ module Hooks = {
     type status = [ | `danger | `warning | `success | `info];
   };
 
-  [@bs.module "@chakra-ui/core"]
-  external _useToast: (Toast.config, unit) => unit = "useToast";
+  [@bs.module "@chakra-ui/core"] external _useToast: (Toast.config, unit) => unit = "useToast";
 
   let useToast =
       (
@@ -159,3 +156,10 @@ module Textarea = BsChakra__Textarea;
 module Select = BsChakra__Select;
 module CloseButton = BsChakra__CloseButton;
 module AspectRatioBox = BsChakra__AspectRatioBox;
+module PopoverArrow = BsChakra__PopoverArrow;
+module PopoverBody = BsChakra__PopoverBody;
+module PopoverHeader = BsChakra__PopoverHeader;
+module PopoverCloseButton = BsChakra__PopoverCloseButton;
+module PopoverContent = BsChakra__PopoverContent;
+module PopoverTrigger = BsChakra__PopoverTrigger;
+module Popover = BsChakra__Popover;
