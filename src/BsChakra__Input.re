@@ -4,6 +4,7 @@ open BsChakra__Types;
 external make:
   (
     ~placeholder: string=?,
+    ~name: string=?,
     ~id: string=?,
     ~roundedLeft: string=?,
     ~onChange: 'a => unit=?,
