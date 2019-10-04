@@ -6,6 +6,7 @@ external make:
     ~placeholder: string=?,
     ~name: string=?,
     ~id: string=?,
+    ~ref: React.Ref.t('ref)=?,
     ~roundedLeft: string=?,
     ~onChange: 'a => unit=?,
     ~onBlur: 'a => unit=?,
@@ -32,17 +33,7 @@ external make:
     ~px: 'px=?,
     ~py: 'py=?,
     ~size: [@bs.string] [ | `sm | `md | `lg]=?,
-    ~_type: [@bs.string] [
-              | `text
-              | `phone
-              | `password
-              | `number
-              | `date
-              | `checkbox
-              | `radio
-              | `email
-              | `url
-            ]
+    ~_type: [@bs.string] [ | `text | `phone | `password | `number | `date | `checkbox | `radio | `email | `url]
   ) =>
   React.element =
   "Input";
