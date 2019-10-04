@@ -32,7 +32,11 @@ external make:
     ~position: [@bs.string] [ | `relative | `static | `absolute]=?,
     ~_as: string=?,
     ~rounded: 'rounded=?,
-    ~border: 'border=?
+    ~border: 'border=?,
+    ~top: 'top=?,
+    ~left: 'left=?,
+    ~right: 'right=?,
+    ~bottom: 'bottom=?
   ) =>
   React.element =
   "Box";
@@ -65,6 +69,10 @@ let makeProps =
       ~boxShadow: option(responsiveValue(shadowProps))=?,
       ~rounded: option(responsiveValue(radiiProps))=?,
       ~border: option(responsiveValue(borderProps))=?,
+      ~top: option(responsiveValue(string))=?,
+      ~bottom: option(responsiveValue(string))=?,
+      ~left: option(responsiveValue(string))=?,
+      ~right: option(responsiveValue(string))=?,
     ) =>
   makeProps(
     ~bg=?bg->mapToColor,
@@ -93,4 +101,8 @@ let makeProps =
     ~overflowY=?overflowY->extractProps(overflowToJs),
     ~rounded=?rounded->extractProps(radiiPropsToJs),
     ~border=?border->extractBorderProps,
+    ~top=?top->extractProps(v => v),
+    ~left=?left->extractProps(v => v),
+    ~right=?right->extractProps(v => v),
+    ~bottom=?bottom->extractProps(v => v),
   );
