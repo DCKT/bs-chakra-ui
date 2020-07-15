@@ -29,23 +29,25 @@ module App = {
     let (isChecked, setChecked) = React.useState(() => false);
 
     <ThemeProvider theme>
-      <CSSReset />
-      <Text fontSize={Responsive([|`center, `right, `left|])}>
-        "Hello responsive"->React.string
-      </Text>
-      <Stack isInline=true align=`center spacing=2>
-        <FormLabel htmlFor="toggle">
-          <Text fontSize={All(`center)}>
-            "Toggle"->React.string
-          </Text>
-        </FormLabel>
-        <Switch
-          id="toggle"
-          size=`lg
-          isChecked
-          onChange={_ => setChecked(v => !v)}
-        />
-      </Stack>
+      <ColorModeProvider>
+        <CSSReset />
+        <Text fontSize={Responsive([|`center, `right, `left|])}>
+          "Hello responsive"->React.string
+        </Text>
+        <Stack isInline=true align=`center spacing=2>
+          <FormLabel htmlFor="toggle">
+            <Text fontSize={All(`center)}>
+              "Toggle"->React.string
+            </Text>
+          </FormLabel>
+          <Switch
+            id="toggle"
+            size=`lg
+            isChecked
+            onChange={_ => setChecked(v => !v)}
+          />
+        </Stack>
+      </ColorModeProvider>
     </ThemeProvider>
   };
 };

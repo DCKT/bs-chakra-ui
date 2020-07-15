@@ -11,6 +11,21 @@ module CSSReset = {
   [@bs.module "@chakra-ui/core"] [@react.component] external make: unit => React.element = "CSSReset";
 };
 
+module ColorModeProvider = {
+  [@bs.module "@chakra-ui/core"] [@react.component]
+  external make: (~children: React.element) => React.element = "ColorModeProvider";
+};
+
+module DarkMode = {
+  [@bs.module "@chakra-ui/core"] [@react.component]
+  external make: (~children: React.element) => React.element = "DarkMode";
+};
+
+module LightMode = {
+  [@bs.module "@chakra-ui/core"] [@react.component]
+  external make: (~children: React.element) => React.element = "LightMode";
+};
+
 module Hooks = {
   [@bs.module "@chakra-ui/core"]
   external useDisclosure:
@@ -36,6 +51,16 @@ module Hooks = {
     "useClipboard";
 
   [@bs.module "@chakra-ui/core"] external useTheme: unit => theme = "useTheme";
+
+  [@bs.module "@chakra-ui/core"]
+  external useColorMode:
+    unit =>
+    {
+      .
+      "colorMode": string,
+      [@bs.meth] "toggleColorMode": unit => unit,
+    } =
+    "useColorMode";
 
   module Toast = {
     [@bs.deriving abstract]
