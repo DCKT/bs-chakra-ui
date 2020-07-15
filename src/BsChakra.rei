@@ -14,6 +14,16 @@ module ColorModeProvider: {
   external make: (~children: React.element) => React.element = "ColorModeProvider";
 };
 
+module DarkMode: {
+  [@bs.module "@chakra-ui/core"] [@react.component]
+  external make: (~children: React.element) => React.element = "DarkMode";
+};
+
+module LightMode: {
+  [@bs.module "@chakra-ui/core"] [@react.component]
+  external make: (~children: React.element) => React.element = "LightMode";
+};
+
 module Hooks: {
   [@bs.module "@chakra-ui/core"]
   external useDisclosure:
